@@ -1,5 +1,8 @@
 ﻿using SearchMovie.Model;
 using System;
+using System.Collections.Generic;
+using static SearchMovie.Manager;
+
 
 namespace SearchMovie
 {
@@ -22,12 +25,14 @@ namespace SearchMovie
 
                 var optionSelected = Console.ReadLine();
                 var Choice = int.Parse(optionSelected);
+                Manager manager = new Manager();
 
                 if (Choice == 1)
                 {
-                    Console.WriteLine("Rechercher un film : ");
+                    Console.WriteLine("Search a Movie : ");
                     var search = Console.ReadLine();
-                    Movies[] movies = Manager.SearchMovie(search);
+                    List<Movies> movies = manager.SearchMovie(search);
+
                     foreach (Movies movie in movies)
                     {
                         Console.WriteLine(movie.Title);

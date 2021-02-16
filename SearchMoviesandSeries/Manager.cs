@@ -16,20 +16,48 @@ namespace SearchMovie
             
         }
 
-        public Movies[] SearchMovie(string search)
-        {
-            Movies[] myMovie = myApi.GetMovie(search);
+        ////////////////////////////////////////////////////
+        ///////////////////GET MOVIES////////////////////////
+        ////////////////////////////////////////////////////
 
-            return myMovie;
+        public List<Movies> SearchMovie(string search)
+        {
+            List<Movies> myMovies = myApi.GetMovies(search);
+
+            return myMovies;
         }
 
-
-
+        ////////////////////////////////////////////////////
+        ///////////////////DETAILS MOVIES////////////////////////
+        ////////////////////////////////////////////////////
         public DetailsMovies DetailsMovie(int id)
         {
-            DetailsMovies myMovie = myApi.GetMovieDetails(id);
+            DetailsMovies myMovieDetails = myApi.GetMoviesDetails(id);
 
-            return myMovie;
+            return myMovieDetails;
         }
+
+        ////////////////////////////////////////////////////
+        ///////////////////GET SERIES////////////////////////
+        ////////////////////////////////////////////////////
+
+        public List<Series> SearchSeries(string search)
+        {
+            List<Series> mySeries = myApi.GetSeries(search);
+
+            return mySeries;
+        }
+
+        ////////////////////////////////////////////////////
+        ///////////////////DETAILS SERIES////////////////////////
+        ////////////////////////////////////////////////////
+
+        public DetailsSeries DetailsSeries(int id)
+        {
+            DetailsSeries mySerieDetails = myApi.GetSeriesDetails(id);
+
+            return mySerieDetails;
+        }
+
     }
 }

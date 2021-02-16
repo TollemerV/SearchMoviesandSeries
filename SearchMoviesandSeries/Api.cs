@@ -26,7 +26,7 @@ namespace SearchMovie
         ///////////////////GET MOVIES////////////////////////
         ////////////////////////////////////////////////////
 
-        public List<Movies> GetMovie(string search)
+        public List<Movies> GetMovies(string search)
         {
             var client = new RestClient(path + "search/movie?" + api + "&language=en-US&query" + search);
 
