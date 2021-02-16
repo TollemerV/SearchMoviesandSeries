@@ -22,7 +22,7 @@ namespace SearchMovie
 
         }
 
-        public Movies[] GetMovie(string search)
+        public List<Movies> GetMovie(string search)
         {
             var client = new RestClient(path + "search/movie?" + api + "&language=en-US&query" + search);
 
@@ -30,10 +30,18 @@ namespace SearchMovie
 
             var response = client.Get(request);
 
-            Movies[] moviesReturn = JsonConvert.DeserializeObject<Movies[]>(response.Content);
+            var moviesReturn = JsonConvert.DeserializeObject<DisplayMovies>(response.Content);
 
+            if (moviesReturn is null)
+            {
+                throw new FailureConnectionException();
+            }
+            else if (moviesReturn.displayMovie.Count == 0)
+            {
+                throw new EmptyDataException();
+            }
 
-            return moviesReturn;
+            return moviesReturn.displayMovie;
         }
 
         public DetailsMovies GetMovieDetails(int id)
