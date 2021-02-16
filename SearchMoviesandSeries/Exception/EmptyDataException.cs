@@ -6,6 +6,8 @@ namespace SearchMovie
     [Serializable]
     internal class EmptyDataException : Exception
     {
+
+        public string message = "##### NO RESULTS #####";
         public EmptyDataException()
         {
         }

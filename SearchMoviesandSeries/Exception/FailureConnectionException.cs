@@ -6,8 +6,11 @@ namespace SearchMovie
     [Serializable]
     internal class FailureConnectionException : Exception
     {
+
+        public string message = "##### LOST CONNECTION #####";
         public FailureConnectionException()
         {
+
         }
 
         public FailureConnectionException(string message) : base(message)

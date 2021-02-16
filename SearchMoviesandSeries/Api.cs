@@ -22,6 +22,10 @@ namespace SearchMovie
 
         }
 
+        ////////////////////////////////////////////////////
+        ///////////////////GET MOVIES////////////////////////
+        ////////////////////////////////////////////////////
+
         public List<Movies> GetMovie(string search)
         {
             var client = new RestClient(path + "search/movie?" + api + "&language=en-US&query" + search);
@@ -44,9 +48,14 @@ namespace SearchMovie
             return moviesReturn.displayMovie;
         }
 
-        public DetailsMovies GetMovieDetails(int id)
+
+        ////////////////////////////////////////////////////
+        ///////////////////DETAILS MOVIES////////////////////////
+        ////////////////////////////////////////////////////
+
+        public DetailsMovies GetMoviesDetails(int id)
         {
-            var client = new RestClient(path + "/movie/" + id + "?" + api + "&language=en-US&query");
+            var client = new RestClient(path + "movie/" + id + "?" + api + "&language=en-US&query");
 
             var request = new RestRequest();
 
@@ -54,6 +63,63 @@ namespace SearchMovie
 
 
             var detailsReturn = JsonConvert.DeserializeObject<DetailsMovies>(response.Content);
+            
+            if (detailsReturn == null)
+            {
+                throw new FailureConnectionException();
+            }
+            return detailsReturn;
+
+        }
+
+
+
+        ////////////////////////////////////////////////////
+        ///////////////////GET SERIES////////////////////////
+        ////////////////////////////////////////////////////
+
+        public List<Series> GetSeries(string search)
+        {
+            var client = new RestClient(path + "search/tv?" + api + "&language=en-US&query" + search);
+
+            var request = new RestRequest();
+
+            var response = client.Get(request);
+
+            var seriesReturn = JsonConvert.DeserializeObject<DisplaySeries>(response.Content);
+
+            if (seriesReturn is null)
+            {
+                throw new FailureConnectionException();
+            }
+            else if (seriesReturn.displaySerie.Count == 0)
+            {
+                throw new EmptyDataException();
+            }
+
+            return seriesReturn.displaySerie;
+        }
+
+
+        ////////////////////////////////////////////////////
+        ///////////////////DETAILS SERIES////////////////////////
+        ////////////////////////////////////////////////////
+        ///
+        public DetailsSeries GetSeriesDetails(int id)
+        {
+            var client = new RestClient(path + "tv/" + id + "?" + api + "&language=en-US&query");
+
+            var request = new RestRequest();
+
+            var response = client.Get(request);
+
+
+            var detailsReturn = JsonConvert.DeserializeObject<DetailsSeries>(response.Content);
+
+            if (detailsReturn == null)
+            {
+                throw new FailureConnectionException();
+            }
             return detailsReturn;
 
         }
