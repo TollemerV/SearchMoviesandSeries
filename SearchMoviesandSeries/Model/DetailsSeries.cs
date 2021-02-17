@@ -28,11 +28,11 @@ namespace SearchMovie.Model
             }
         }
 
-        [JsonProperty("overwiew")]
+        [JsonProperty("overview")]
         public string Overview { get; set; }
 
         [JsonProperty("vote_average")]
-        public int VoteAverage { get; set; }
+        public float VoteAverage { get; set; }
 
         [JsonProperty("vote_count")]
         public int VoteCount { get; set; }
@@ -43,7 +43,7 @@ namespace SearchMovie.Model
                    "\n Title : " + Name + 
                    "\n Type : " + Type +
                    "\n Overview : " + Overview + 
-                   "\n Average : " + VoteAverage +
+                   "\n Average : " + VoteAverage +" / 10" +
                    "\n Number of votes : " + VoteCount;
         }
     }

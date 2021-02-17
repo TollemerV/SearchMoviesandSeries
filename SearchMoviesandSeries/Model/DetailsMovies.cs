@@ -40,10 +40,10 @@ namespace SearchMovie.Model
         public override string ToString()
         {
             return "\n Id :" + Id +
-                   "\n Type : " + Type + "" +
-                   "\n Title : " + Name +
+                   "\n Title : " + Name + "" +
+                   "\n Type : " + Type +
                    "\n Overview : " + Overview + "" +
-                   "\n Average : " + VoteAverage +
+                   "\n Average : " + VoteAverage + " / 10" +
                    "\n Number of votes : " + VoteCount;
         }
     }

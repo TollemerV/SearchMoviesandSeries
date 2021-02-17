@@ -108,7 +108,26 @@ namespace SearchMovie
                 }
                 else if (Choice == 4)
                 {
+                    try
+                    {
+                        Console.WriteLine("Search a Movie you want details : ");
+                        var searchid = Console.ReadLine();
 
+                        DetailsSeries detailsSeries = manager.DetailsSeries(searchid);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(detailsSeries.ToString());
+
+                        Console.ResetColor();
+
+                    }
+                    catch (FailureConnectionException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
+                    catch (EmptyDataException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
                 }
                 else if (Choice == 5)
                 {

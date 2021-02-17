@@ -15,7 +15,7 @@ namespace SearchMovie.Model
         [JsonProperty("name")]
         public string Title { get; set; }
 
-        private string _myType = "Series";
+        private string _myType = "Serie";
         public string Type
         {
             get
@@ -33,7 +33,7 @@ namespace SearchMovie.Model
         {
             return "\n Id :" + Id +
                    "\n Title : " + Title + "" +
-                   "\n Type : " + _myType;
+                   "\n Type : " + Type;
         }
     }
 }
