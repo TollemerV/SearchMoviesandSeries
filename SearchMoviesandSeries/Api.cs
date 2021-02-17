@@ -53,9 +53,9 @@ namespace SearchMovie
         ///////////////////DETAILS MOVIES////////////////////////
         ////////////////////////////////////////////////////
 
-        public DetailsMovies GetMoviesDetails(int id)
+        public DetailsMovies GetMoviesDetails(string id)
         {
-            var client = new RestClient(path + "movie/" + id + "?" + api + "&language=en-US&query");
+            var client = new RestClient(path + "movie/" + id + api + "&language=en-US&query");
 
             var request = new RestRequest();
 
@@ -80,7 +80,7 @@ namespace SearchMovie
 
         public List<Series> GetSeries(string search)
         {
-            var client = new RestClient(path + "search/tv?" + api + "&language=en-US&query" + search);
+            var client = new RestClient(path + "search/tv" + api + "&language=en-US&query" + search);
 
             var request = new RestRequest();
 
@@ -105,9 +105,9 @@ namespace SearchMovie
         ///////////////////DETAILS SERIES////////////////////////
         ////////////////////////////////////////////////////
         ///
-        public DetailsSeries GetSeriesDetails(int id)
+        public DetailsSeries GetSeriesDetails(string id)
         {
-            var client = new RestClient(path + "tv/" + id + "?" + api + "&language=en-US&query");
+            var client = new RestClient(path + "tv/" + id + api + "&language=en-US&query");
 
             var request = new RestRequest();
 

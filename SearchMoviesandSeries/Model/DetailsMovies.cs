@@ -28,19 +28,14 @@ namespace SearchMovie.Model
             }
         }
 
-        [JsonProperty("overwiew")]
+        [JsonProperty("overview")]
         public string Overview { get; set; }
 
         [JsonProperty("vote_average")]
-        public int VoteAverage { get; set; }
+        public float VoteAverage { get; set; }
 
         [JsonProperty("vote_count")]
         public int VoteCount { get; set; }
-
-        public DetailsMovies()
-        {
-
-        }
 
         public override string ToString()
         {

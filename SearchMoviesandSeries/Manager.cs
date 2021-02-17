@@ -30,7 +30,7 @@ namespace SearchMovie
         ////////////////////////////////////////////////////
         ///////////////////DETAILS MOVIES////////////////////////
         ////////////////////////////////////////////////////
-        public DetailsMovies DetailsMovie(int id)
+        public DetailsMovies DetailsMovie(string id)
         {
             DetailsMovies myMovieDetails = myApi.GetMoviesDetails(id);
 
@@ -52,7 +52,7 @@ namespace SearchMovie
         ///////////////////DETAILS SERIES////////////////////////
         ////////////////////////////////////////////////////
 
-        public DetailsSeries DetailsSeries(int id)
+        public DetailsSeries DetailsSeries(string id)
         {
             DetailsSeries mySerieDetails = myApi.GetSeriesDetails(id);
 

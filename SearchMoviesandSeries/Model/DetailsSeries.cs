@@ -37,10 +37,6 @@ namespace SearchMovie.Model
         [JsonProperty("vote_count")]
         public int VoteCount { get; set; }
 
-        public DetailsSeries()
-        {
-
-        }
         public override string ToString()
         {
             return "\n Id :" + Id +
