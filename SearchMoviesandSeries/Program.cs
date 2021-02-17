@@ -81,6 +81,29 @@ namespace SearchMovie
                 }
                 else if (Choice == 3)
                 {
+                    try
+                    {
+                        Console.WriteLine("Search a Serie : ");
+                        var search = Console.ReadLine();
+                        List<Series> series = manager.SearchSeries(search);
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                        for (int i = 1; i <= 15; i++)
+                        {
+                            Console.WriteLine(series[i].ToString());
+                        }
+                        Console.ResetColor();
+
+                    }
+                    catch (FailureConnectionException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
+                    catch (EmptyDataException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
 
                 }
                 else if (Choice == 4)

@@ -80,7 +80,7 @@ namespace SearchMovie
 
         public List<Series> GetSeries(string search)
         {
-            var client = new RestClient(path + "search/tv" + api + "&language=en-US&query" + search);
+            var client = new RestClient(path + "search/tv" + api + "&language=en-US&query=" + search);
 
             var request = new RestRequest();
 
