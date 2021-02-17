@@ -27,18 +27,11 @@ namespace SearchMovie.Model
                 _myType = value;
             }
         }
-
-        public Movies()
-        {
-
-        }
-
-
         public override string ToString()
         {
             return "\n Id :" + Id +
-                   "\n Type : " + Type + "" +
-                   "\n Title : " + Title;
+                   "\n Title : " + Title + 
+                   "\n Type : " + _myType;
         }
     }
 }

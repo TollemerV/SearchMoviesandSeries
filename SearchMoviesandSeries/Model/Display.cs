@@ -12,9 +12,6 @@ namespace SearchMovie.Model
         [JsonProperty("results")]
         public List<Movies> displayMovie { get; set; }
 
-        public DisplayMovies()
-        {
-        }
     }
 
     public class DisplaySeries
@@ -22,8 +19,5 @@ namespace SearchMovie.Model
         [JsonProperty("results")]
         public List<Series> displaySerie { get; set; }
 
-        public DisplaySeries()
-        {
-        }
     }
 }

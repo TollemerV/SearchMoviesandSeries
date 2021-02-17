@@ -28,16 +28,12 @@ namespace SearchMovie.Model
             }
         }
 
-        public Series()
-        {
-
-        }
 
         public override string ToString()
         {
             return "\n Id :" + Id +
-                   "\n Type : " + Type + "" +
-                   "\n Title : " + Title;
+                   "\n Title : " + Title + "" +
+                   "\n Type : " + _myType;
         }
     }
 }

@@ -10,16 +10,15 @@ namespace SearchMovie
     {
         static void Main(string[] args)
         {
-            var Quit = false;
+            var quit = false;
 
-            //  We display application's menu
-
-            while (!Quit)
+            while (!quit)
             {
-                Console.WriteLine("1 - Find media by name");
-                Console.WriteLine("2 - Details of a media");
-                Console.WriteLine("3 - Display all media");
-                Console.WriteLine("4 - Quit");
+                Console.WriteLine("1 - Find a movie by name");
+                Console.WriteLine("2 - Details of a movie");
+                Console.WriteLine("3 - Find a serie by name");
+                Console.WriteLine("4 - Details of a serie");
+                Console.WriteLine("5 - Quit");
                 Console.WriteLine(string.Empty);
                 Console.WriteLine("Select an option : ");
 
@@ -29,14 +28,30 @@ namespace SearchMovie
 
                 if (Choice == 1)
                 {
-                    Console.WriteLine("Search a Movie : ");
-                    var search = Console.ReadLine();
-                    List<Movies> movies = manager.SearchMovie(search);
+                    try
+                    { 
+                        Console.WriteLine("Search a Movie : ");
+                        var search = Console.ReadLine();
+                        List<Movies> movies = manager.SearchMovie(search);
 
-                    foreach (Movies movie in movies)
-                    {
-                        Console.WriteLine(movie.Title);
+                            Console.ForegroundColor = ConsoleColor.Blue;
+
+                            for (int i = 1; i <= 15; i++)
+                            {
+                                Console.WriteLine(movies[i].ToString());
+                            }
+                            Console.ResetColor();
+                        
                     }
+                    catch (FailureConnectionException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
+                    catch (EmptyDataException e)
+                    {
+                        Console.WriteLine(e.message);
+                    }
+
 
 
                 }
@@ -55,7 +70,7 @@ namespace SearchMovie
                 }
                 else if (Choice == 5)
                 {
-                    Quit = true;
+                    quit = true;
                 }
                 else
                 {

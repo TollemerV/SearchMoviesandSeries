@@ -12,7 +12,7 @@ namespace SearchMovie
     public class Api
     {
 
-        private const string api = "api_key=91d9592dccb04c5a93f6b63b25d08270";
+        private const string api = "?api_key=91d9592dccb04c5a93f6b63b25d08270";
         private const string path = "https://api.themoviedb.org/3/";
         // Search movie : movie/550? or movie/popular
 
@@ -28,7 +28,7 @@ namespace SearchMovie
 
         public List<Movies> GetMovies(string search)
         {
-            var client = new RestClient(path + "search/movie?" + api + "&language=en-US&query" + search);
+            var client = new RestClient(path + "search/movie" + api + "&language=en-US&query=" + search);
 
             var request = new RestRequest();
 
@@ -40,10 +40,10 @@ namespace SearchMovie
             {
                 throw new FailureConnectionException();
             }
-            else if (moviesReturn.displayMovie.Count == 0)
-            {
-                throw new EmptyDataException();
-            }
+            //else if (moviesReturn.displayMovie.Count == 0)
+            //{
+            //    throw new EmptyDataException();
+            //}
 
             return moviesReturn.displayMovie;
         }
@@ -92,10 +92,10 @@ namespace SearchMovie
             {
                 throw new FailureConnectionException();
             }
-            else if (seriesReturn.displaySerie.Count == 0)
-            {
-                throw new EmptyDataException();
-            }
+            //else if (seriesReturn.displaySerie.Count == 0)
+            //{
+            //    throw new EmptyDataException();
+            //}
 
             return seriesReturn.displaySerie;
         }
