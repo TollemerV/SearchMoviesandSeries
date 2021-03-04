@@ -12,8 +12,32 @@ namespace SearchMovie
         {
             var quit = false;
 
+
+            ///////////////////////////////////////////
+            /////////////// PARAMETRES CONSOLE /////////////////////
+            ///////////////////////////////////////////
+            
+
+            //var commandLineApplication = new CommandLineApplication(throwOnUnexpectedArg: false);
+            //_moviesCmd = commandLineApplication.Option("-m|--movies <title>", "Search movies.", CommandOptionType.SingleValue);
+
+            //commandLineApplication.HelpOption("-?|-h|--help");
+            //commandLineApplication.OnExecute(() =>
+            //{
+            //    if (_moviesCmd.Value() != null)
+            //    {
+            //        searchMovies(_moviesCmd.Value());
+            //    }
+            //    return 0;
+            //});
+            //commandLineApplication.Execute(args);
+
             while (!quit)
             {
+                ///////////////////////////////////////////
+                /////////////// MENU  /////////////////////
+                ///////////////////////////////////////////
+                
                 Console.WriteLine("1 - Find a movie by name");
                 Console.WriteLine("2 - Details of a movie");
                 Console.WriteLine("3 - Find a serie by name");
@@ -29,7 +53,9 @@ namespace SearchMovie
                 if (Choice == 1)
                 {
                     try
-                    { 
+                    {
+                        ///////////////// FIND A MOVIE ///////////////////////
+                       
                         Console.WriteLine("Search a Movie : ");
                         var search = Console.ReadLine();
                         List<Movies> movies = manager.SearchMovie(search);
@@ -43,6 +69,8 @@ namespace SearchMovie
                             Console.ResetColor();
                         
                     }
+                    ////////////////////EXCEPTION/////////////////////
+                    
                     catch (FailureConnectionException e)
                     {
                         Console.WriteLine(e.message);
@@ -59,6 +87,8 @@ namespace SearchMovie
                 {
                     try
                     {
+                        ///////////////// MOVIES DETAILS ///////////////////////
+                        
                         Console.WriteLine("Search a Movie you want details : ");
                         var searchid = Console.ReadLine();
 
@@ -69,6 +99,8 @@ namespace SearchMovie
                         Console.ResetColor();
 
                     }
+                    ////////////////////EXCEPTION/////////////////////
+                    
                     catch (FailureConnectionException e)
                     {
                         Console.WriteLine(e.message);
@@ -83,6 +115,9 @@ namespace SearchMovie
                 {
                     try
                     {
+
+                        ///////////////// FIND A SERIE ///////////////////////
+                        
                         Console.WriteLine("Search a Serie : ");
                         var search = Console.ReadLine();
                         List<Series> series = manager.SearchSeries(search);
@@ -96,6 +131,9 @@ namespace SearchMovie
                         Console.ResetColor();
 
                     }
+
+                    ////////////////////EXCEPTION/////////////////////
+                   
                     catch (FailureConnectionException e)
                     {
                         Console.WriteLine(e.message);
@@ -110,6 +148,8 @@ namespace SearchMovie
                 {
                     try
                     {
+                        ///////////////// DETAILS SERIES ///////////////////////
+                        
                         Console.WriteLine("Search a Movie you want details : ");
                         var searchid = Console.ReadLine();
 
@@ -120,6 +160,8 @@ namespace SearchMovie
                         Console.ResetColor();
 
                     }
+                    ////////////////////EXCEPTION/////////////////////
+                    
                     catch (FailureConnectionException e)
                     {
                         Console.WriteLine(e.message);
@@ -131,10 +173,14 @@ namespace SearchMovie
                 }
                 else if (Choice == 5)
                 {
+                    ///////////////// QUIT THE PROGRAM ///////////////////////
+                    
                     quit = true;
                 }
                 else
                 {
+                    ////////////////////EXCEPTION/////////////////////
+                  
                     Console.WriteLine("Invalid option, please retry");
                     Console.WriteLine(string.Empty);
                 }
