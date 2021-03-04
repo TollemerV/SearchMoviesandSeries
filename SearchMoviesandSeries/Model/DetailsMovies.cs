@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SearchMoviesandSeries.Model;
 
 namespace SearchMovie.Model
 {
-    public class DetailsMovies
+    public class DetailsMovies : DetailsMedia
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
         [JsonProperty("title")]
         public string Name { get; set; }
 
@@ -27,15 +25,6 @@ namespace SearchMovie.Model
                 _myType = value;
             }
         }
-
-        [JsonProperty("overview")]
-        public string Overview { get; set; }
-
-        [JsonProperty("vote_average")]
-        public float VoteAverage { get; set; }
-
-        [JsonProperty("vote_count")]
-        public int VoteCount { get; set; }
 
         public override string ToString()
         {

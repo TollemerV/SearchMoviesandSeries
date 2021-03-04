@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SearchMoviesandSeries.Model;
 
 namespace SearchMovie.Model
 {
-    public class Series
+    public class Series : Media
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
         [JsonProperty("name")]
         public string Title { get; set; }
 
